@@ -1,0 +1,8 @@
+query {
+  getRecipes(ingredients: ["tomato", "basil", "mozzarella"]) {
+    id
+    title
+    instructions
+    ingredients
+  }
+}

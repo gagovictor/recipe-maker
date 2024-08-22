@@ -4,11 +4,15 @@ import { HttpModule } from '@nestjs/axios';
 import { RecipeService } from './services/recipe.service';
 import { AppController } from './controllers/app.controller';
 import { GraphqlModule } from './graphql.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
     HttpModule,
-    GraphqlModule
+    GraphqlModule,
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
   ],
   controllers: [
     AppController
