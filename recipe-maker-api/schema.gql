@@ -1,0 +1,14 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Recipe {
+  id: ID!
+  title: String!
+  instructions: String
+  ingredients: [String!]!
+}
+
+type Query {
+  getRecipes(ingredients: [String!]!): [Recipe!]!
+}
