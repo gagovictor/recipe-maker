@@ -1,7 +1,21 @@
 <div class="ingredient-input-container">
     <mat-form-field appearance="fill">
-        <mat-label>Ingredient</mat-label>
-        <input matInput [(ngModel)]="ingredient" placeholder="Enter ingredient" />
+        <mat-label id="ingredient-label">Ingredient</mat-label>
+        <input
+            matInput
+            [(ngModel)]="ingredient"
+            placeholder="Enter ingredient"
+            (keydown.enter)="addIngredient()"
+            aria-labelledby="ingredient-label"
+            aria-required="true"
+        />
     </mat-form-field>
-    <button mat-raised-button color="primary" (click)="addIngredient()">Add</button>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="addIngredient()"
+      aria-label="Add ingredient"
+    >
+        Add
+    </button>
 </div>
