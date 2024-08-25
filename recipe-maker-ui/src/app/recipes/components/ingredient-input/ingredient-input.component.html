@@ -1,1 +1,7 @@
-<p>ingredient-input works!</p>
+<div class="ingredient-input-container">
+    <mat-form-field appearance="fill">
+        <mat-label>Ingredient</mat-label>
+        <input matInput [(ngModel)]="ingredient" placeholder="Enter ingredient" />
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="addIngredient()">Add</button>
+</div>

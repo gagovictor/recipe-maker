@@ -1,1 +1,8 @@
-<p>ingredient-chip-list works!</p>
+<div class="ingredient-chip-list">
+    <mat-chip-listbox>
+        <mat-chip *ngFor="let ingredient of ingredients$ | async" (removed)="removeIngredient(ingredient)">
+            {{ ingredient }}
+            <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+    </mat-chip-listbox>
+</div>

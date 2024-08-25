@@ -1,0 +1,14 @@
+.ingredient-input-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+mat-form-field {
+    flex: 1;
+    margin-right: 8px;
+}
+
+button {
+    flex-shrink: 0;
+}
