@@ -10,16 +10,12 @@ export const removeIngredient = createAction(
   props<{ ingredient: string }>()
 );
 
-export const queryRecipe = createAction(
-  '[Recipe] Query Recipe'
+export const queryRecipesSuccess = createAction(
+  '[Recipe] Query Recipes Success',
+  props<{ recipes: any[] }>()
 );
 
-export const queryRecipeSuccess = createAction(
-  '[Recipe] Query Recipe Success',
-  props<{ recipes: any[] }>() // TODO type response
-);
-
-export const queryRecipeFailure = createAction(
-  '[Recipe] Query Recipe Failure',
+export const queryRecipesFailure = createAction(
+  '[Recipe] Query Recipes Failure',
   props<{ error: any }>()
 );

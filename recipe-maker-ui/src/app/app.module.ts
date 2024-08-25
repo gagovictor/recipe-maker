@@ -9,7 +9,6 @@ import { provideHttpClient } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { RecipeEffects } from './recipes/store/recipes.effects';
 import { reducers } from './core/store/app.reducer';
 
 @NgModule({

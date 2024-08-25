@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { removeIngredient, queryRecipe } from '../../store/recipes.actions';
+import { removeIngredient } from '../../store/recipes.actions';
 import { selectIngredients } from '../../store/recipes.selectors';
+import { AppState } from '../../../core/store/app.reducer';
 
 @Component({
   selector: 'app-ingredient-chip-list',
@@ -12,7 +13,7 @@ import { selectIngredients } from '../../store/recipes.selectors';
 export class IngredientChipListComponent implements OnInit {
   ingredients$: Observable<string[]>;
 
-  constructor(private store: Store) {
+  constructor(private store: Store<AppState>) {
     this.ingredients$ = this.store.pipe(select(selectIngredients));
   }
 

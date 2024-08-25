@@ -6,31 +6,26 @@ import { catchError, map, switchMap, withLatestFrom } from 'rxjs/operators';
 import { RecipeService } from '../services/recipe.service';
 import * as RecipeActions from './recipes.actions';
 import * as fromIngredients from './recipes.selectors';
+import { AppState } from '../../core/store/app.reducer';
 
 @Injectable()
 export class RecipeEffects {
   constructor(
     private actions$: Actions,
     private recipeService: RecipeService,
-    private store: Store
-  ) {
-  }
+    private store: Store<AppState>
+  ) {}
 
-  // queryRecipeOnIngredientChange$ = createEffect(() => {
-  //   return  this.actions$.pipe(
-  //     ofType(
-  //       RecipeActions.addIngredient,
-  //       RecipeActions.removeIngredient
-  //     ),
-  //     withLatestFrom(this.store.pipe(select(fromIngredients.selectIngredients))),
-  //     switchMap(([action, ingredients]) => {
-  //       console.log(`action`, action);
-  //       console.log(`ingredients`, ingredients);
-  //       return this.recipeService.queryRecipes(ingredients as string[]).pipe(
-  //         map(response => RecipeActions.queryRecipeSuccess({ recipes: response.data.getRecipes })),
-  //         catchError(error => of(RecipeActions.queryRecipeFailure({ error })))
-  //       );
-  //     })
-  //   )
-  // });
+  updateRecipe$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(RecipeActions.addIngredient, RecipeActions.removeIngredient),
+      withLatestFrom(this.store.pipe(select(fromIngredients.selectIngredients))),
+      switchMap(([action, ingredients]) =>
+        this.recipeService.queryRecipes(ingredients).pipe(
+          map((recipes) => RecipeActions.queryRecipesSuccess({ recipes })),
+          catchError((error) => of(RecipeActions.queryRecipesFailure({ error })))
+        )
+      )
+    )
+  );
 }
