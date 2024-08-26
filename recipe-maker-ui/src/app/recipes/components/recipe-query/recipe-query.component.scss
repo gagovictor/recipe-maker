@@ -1,7 +1,18 @@
+@use "@angular/material" as mat;
+@use "../../../../m3-theme" as m3-theme;
+
+:host {
+    background-color: mat.get-theme-color(m3-theme.$light-theme, neutral, 98);
+    min-height: 100%;
+    display: block;
+}
+
 .container {
     display: flex;
     flex-direction: column;
     width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 32px 16px;
     box-sizing: border-box;
 }

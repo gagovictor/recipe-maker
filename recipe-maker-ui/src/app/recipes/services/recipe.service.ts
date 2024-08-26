@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { catchError, map, Observable, of } from 'rxjs';
+import { QueryRecipesResponse } from '../models/recipe-api';
 
 @Injectable({
   providedIn: 'root'
@@ -16,12 +17,31 @@ export class RecipeService {
         getRecipes(ingredients: ${JSON.stringify(ingredients)}) {
           id
           title
+          image
           instructions
-          ingredients
+          likes
+          ingredients {
+            id
+            name
+          }
+          usedIngredients {
+            id
+            name
+          }
+          unusedIngredients {
+            id
+            name
+          }
+          missedIngredients {
+            id
+            name
+          }
         }
       }
     `;
 
-    return this.http.post<any>(this.apiUrl, { query });
+    return this.http.post<any>(this.apiUrl, { query }).pipe(
+      map((response: QueryRecipesResponse) => response.data.getRecipes)
+    );
   }
 }

@@ -1,3 +1,6 @@
+@use "@angular/material" as mat;
+@use "../../../../m3-theme" as m3-theme;
+
 mat-toolbar {
     bottom: 0;
     width: 100%;
@@ -10,6 +13,8 @@ mat-toolbar {
     right: 0;
     z-index: 1000;
     height: auto;
+    color: mat.get-theme-color(m3-theme.$light-theme, secondary, 30);
+    background: mat.get-theme-color(m3-theme.$light-theme, tertiary, 95);
 }
 
 mat-toolbar .footer-links {

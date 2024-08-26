@@ -1,9 +1,17 @@
+@use "@angular/material" as mat;
+@use "../../../../m3-theme" as m3-theme;
+
 mat-toolbar {
     position: sticky;
     top: 0;
     z-index: 1000;
+    background: mat.get-theme-color(m3-theme.$light-theme, tertiary, 95);
 }
 
 .spacer {
     flex: 1 1 auto;
+}
+
+.app-title {
+    color: mat.get-theme-color(m3-theme.$light-theme, secondary, 30);
 }

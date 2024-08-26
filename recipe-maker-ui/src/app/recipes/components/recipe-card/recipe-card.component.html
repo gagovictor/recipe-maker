@@ -1,1 +1,21 @@
-<p>recipe-card works!</p>
+<mat-card class="recipe-card">
+    <mat-card-header>
+        <mat-card-title
+            #title
+            [matTooltip]="showTooltip ? recipe.title : null"
+            matTooltipPosition="above"
+            [attr.aria-label]="recipe.title + ' (recipe title)'"
+            [attr.aria-describedby]="'recipe-title-tooltip-'+recipe.id">
+            {{ recipe.title }}
+        </mat-card-title>
+    </mat-card-header>
+    <img mat-card-image [src]="recipe.image" alt="{{ recipe.title }}">
+    <mat-card-actions>
+        <button mat-button [attr.aria-label]="'View recipe for '+recipe.title">
+            View Recipe
+        </button>
+        <span>
+            {{ recipe.likes }} likes
+        </span>
+    </mat-card-actions>
+</mat-card>

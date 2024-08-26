@@ -3,7 +3,7 @@ import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { removeIngredient } from '../../store/recipes.actions';
 import { selectIngredients } from '../../store/recipes.selectors';
-import { AppState } from '../../../core/store/app.reducer';
+import { AppState } from '../../../app.reducer';
 
 @Component({
   selector: 'app-ingredient-chip-list',

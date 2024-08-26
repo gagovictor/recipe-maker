@@ -6,7 +6,8 @@ import { catchError, map, switchMap, withLatestFrom } from 'rxjs/operators';
 import { RecipeService } from '../services/recipe.service';
 import * as RecipeActions from './recipes.actions';
 import * as fromIngredients from './recipes.selectors';
-import { AppState } from '../../core/store/app.reducer';
+import { AppState } from '../../app.reducer';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable()
 export class RecipeEffects {
@@ -23,7 +24,10 @@ export class RecipeEffects {
       switchMap(([action, ingredients]) =>
         this.recipeService.queryRecipes(ingredients).pipe(
           map((recipes) => RecipeActions.queryRecipesSuccess({ recipes })),
-          catchError((error) => of(RecipeActions.queryRecipesFailure({ error })))
+          catchError((error: HttpErrorResponse) => {
+            console.error(`Error while trying to query recipes: ${error.message}`);
+            return of(RecipeActions.queryRecipesFailure({ error: 'Failed to query recipes. Please try again later.' }));
+          })
         )
       )
     )
