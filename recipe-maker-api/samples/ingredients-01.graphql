@@ -1,8 +1,25 @@
 query {
-  getRecipes(ingredients: ["tomato", "basil", "mozzarella"]) {
+  getRecipes(ingredients: ["tomato", "basil"]) {
     id
     title
+    image
     instructions
-    ingredients
+    likes
+    ingredients {
+      id
+      name
+    }
+    usedIngredients {
+      id
+      name
+    }
+    unusedIngredients {
+      id
+      name
+    }
+    missedIngredients {
+      id
+      name
+    }
   }
 }

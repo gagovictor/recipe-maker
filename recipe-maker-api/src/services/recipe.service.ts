@@ -22,8 +22,16 @@ export class RecipeService {
     return response.data.map((recipe: any) => ({
       id: recipe.id,
       title: recipe.title,
+      image: recipe.image,
+      usedIngredients: recipe.usedIngredients,
+      missedIngredients: recipe.missedIngredients,
+      unusedIngredients: recipe.unusedIngredients,
       instructions: recipe.instructions || '',
-      ingredients: recipe.ingredients || [],
+      ingredients: [
+        ...recipe.usedIngredients,
+        ...recipe.missedIngredients
+      ],
+      likes: recipe.likes
     }));
   }
 }

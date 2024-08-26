@@ -2,11 +2,21 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Ingredient {
+  id: ID!
+  name: String!
+}
+
 type Recipe {
   id: ID!
   title: String!
+  image: String!
   instructions: String
-  ingredients: [String!]!
+  ingredients: [Ingredient!]!
+  usedIngredients: [Ingredient!]!
+  unusedIngredients: [Ingredient!]!
+  missedIngredients: [Ingredient!]!
+  likes: Float!
 }
 
 type Query {

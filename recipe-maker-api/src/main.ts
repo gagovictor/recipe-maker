@@ -6,15 +6,15 @@ async function bootstrap() {
 
   app.enableCors({
     origin: (origin, callback) => {
-      if (['http://localhost:4200'].indexOf(origin) !== -1) {
+      if (['http://localhost:4200', 'http://localhost:3000',].indexOf(origin) !== -1 || !origin) {
         callback(null, true);
       } else {
         callback(new Error('Not allowed by CORS'));
       }
     },
-    methods: 'POST',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     credentials: true,
-  });
+  });  
 
   await app.listen(3000);
 }
