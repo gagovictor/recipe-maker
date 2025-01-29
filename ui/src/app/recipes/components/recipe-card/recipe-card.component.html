@@ -14,8 +14,9 @@
         <button mat-button [attr.aria-label]="'View recipe for '+recipe.title">
             View Recipe
         </button>
-        <span>
-            {{ recipe.likes }} likes
+        <span class="likes">
+            <mat-icon inline>favorite</mat-icon>
+            {{ recipe.likes }}
         </span>
     </mat-card-actions>
 </mat-card>

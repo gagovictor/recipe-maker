@@ -13,5 +13,11 @@ mat-toolbar {
 }
 
 .app-title {
-    color: mat.get-theme-color(m3-theme.$light-theme, secondary, 30);
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: mat.get-theme-color(m3-theme.$light-theme, secondary, 40);
+}
+
+button {
+    @include mat.button-color(m3-theme.$light-theme, $color-variant: tertiary);
 }

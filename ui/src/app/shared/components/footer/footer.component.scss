@@ -4,20 +4,23 @@
 mat-toolbar {
     bottom: 0;
     width: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: auto;
+    color: mat.get-theme-color(m3-theme.$light-theme, tertiary, 98);
+    background: mat.get-theme-color(m3-theme.$light-theme, primary, 50);
+}
+
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 0 16px;
     box-sizing: border-box;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    height: auto;
-    color: mat.get-theme-color(m3-theme.$light-theme, secondary, 30);
-    background: mat.get-theme-color(m3-theme.$light-theme, tertiary, 95);
 }
 
-mat-toolbar .footer-links {
+.footer-links {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,19 +28,23 @@ mat-toolbar .footer-links {
 }
 
 @media (min-width: 600px) {
-    mat-toolbar {
+    .container {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
     }
 
-    mat-toolbar .footer-links {
+    .footer-links {
         flex-direction: row;
     }
 }
 
-a mat-icon {
-    margin-right: 4px;
+a[mat-button] {
+    color: mat.get-theme-color(m3-theme.$light-theme, neutral, 100);
+
+    mat-icon {
+        margin-right: 4px;
+    }
 }
 
 p {

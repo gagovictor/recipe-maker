@@ -5,8 +5,8 @@ mat-card {
     display: flex;
     flex-direction: column;
     height: 100%;
-    border: 1px solid mat.get-theme-color(m3-theme.$light-theme, neutral, 60);
-    background: mat.get-theme-color(m3-theme.$light-theme, neutral, 98);
+    border: 1px solid mat.get-theme-color(m3-theme.$light-theme, neutral, 95);
+    background: mat.get-theme-color(m3-theme.$light-theme, neutral, 100);
   }
   
   mat-card-header {
@@ -22,7 +22,7 @@ mat-card {
     white-space: nowrap;
     margin-bottom: 0.5em;
     font-size: 18px;
-    color: mat.get-theme-color(m3-theme.$light-theme, secondary, 40);
+    color: mat.get-theme-color(m3-theme.$light-theme, secondary, 30);
   }
   
   img[mat-card-image] {
@@ -40,4 +40,13 @@ mat-card {
   mat-card-actions {
     display: flex;
     justify-content: space-between;
+  }
+
+  .likes {
+    color: mat.get-theme-color(m3-theme.$light-theme, primary, 60);
+
+    mat-icon {
+      top: 0.125em;
+      position: relative;
+    }
   }
